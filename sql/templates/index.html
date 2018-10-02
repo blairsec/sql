@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>SQL Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <body>
+    <form method="GET">
+      <div>
+        <input type="text" name="search" value="{{ search }}">
+      </div>
+      <div>
+        <input type="submit" value="Search">
+      </div>
+    </form>
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+      </tr>
+      {% for row in result %}
+        <tr>
+          {% for item in row %}
+            <td>{{ item }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
