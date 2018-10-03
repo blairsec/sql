@@ -11,7 +11,7 @@ def db():
 	return sqlite3.connect('static.db')
 
 @app.route('/', methods=['GET'])
-def home():
+def index():
 	if session.get('auth'):
 		search = request.args.get('search', '')
 		query = 'SELECT title, author FROM sequels WHERE title LIKE "%{}%"'.format(search)
@@ -23,7 +23,7 @@ def home():
 def login():
 	username = request.form.get('username', '')
 	password = request.form.get('password', '')
-	query = 'SELECT * FROM users WHERE username="{}" AND password="{}"'.format(username, password)
+	query = 'SELECT * FROM users WHERE username="' + username + '" AND password="' + password + '"'
 	result = list(db().cursor().execute(query))
 	if result:
 		session['auth'] = True
