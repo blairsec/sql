@@ -2,17 +2,35 @@
 <html lang="en">
   <title>SQL Demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
   <body>
-    <form method="POST">
-      <div>
-        <input type="text" name="username">
+    <div class="mw8 center pa4 helvetica black-80">
+      <div class="b f3">
+        Sequel Collection
       </div>
-      <div>
-        <input type="text" name="password">
+      <div class="mt3">
+        <code>query = 'SELECT * FROM users WHERE username="' + username + '" AND password="' + password + '"'</code>
       </div>
-      <div>
-        <input type="submit" value="Login">
+      <div class="mt3">
+        <ul class="lh-copy">
+          <li>
+            Figure out how to login without credentials.
+          </li>
+        </ul>
       </div>
-    </form>
+      <form method="POST">
+        <div class="mt3">
+          <label class="f6 b lh-copy">Username</label>
+          <input class="pa2 input-reset ba w-100" type="text" name="username">
+        </div>
+        <div class="mt3">
+          <label class="f6 b lh-copy">Password</label>
+          <input class="pa2 input-reset ba w-100" type="text" name="password">
+        </div>
+        <div class="mt3">
+          <input class="f6 b ph3 pv2 ba b--black-80 pointer" type="submit" value="Login">
+        </div>
+      </form>
+    </div>
   </body>
 </html>

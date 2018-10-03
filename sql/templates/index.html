@@ -2,27 +2,55 @@
 <html lang="en">
   <title>SQL Demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
   <body>
-    <form method="GET">
-      <div>
-        <input type="text" name="search" value="{{ search }}">
+    <div class="mw8 center pa4 helvetica black-80">
+      <div class="b f3">
+        Sequel Collection
       </div>
-      <div>
-        <input type="submit" value="Search">
+      <div class="mt3">
+        <code>query = 'SELECT title, author FROM sequels WHERE title LIKE "%' + search + '%"'</code>
       </div>
-    </form>
-    <table>
-      <tr>
-        <th>Title</th>
-        <th>Author</th>
-      </tr>
-      {% for row in result %}
-        <tr>
-          {% for item in row %}
-            <td>{{ item }}</td>
+      <div class="mt3">
+        <ul class="lh-copy">
+          <li>
+            I keep my reviews private in the rating column.
+            <ul>
+              <li>Check out the UNION operation.</li>
+            </ul>
+          </li>
+          <li>
+            There's a flag on another table! Too bad you don't know its name.
+            <ul>
+              <li>What are SQLite system tables?</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <form method="GET">
+        <div class="mt3">
+          <label class="f6 b lh-copy">Title</label>
+          <input class="pa2 input-reset ba w-100" type="text" name="search" value="{{ search }}">
+        </div>
+        <div class="mt3">
+          <input class="f6 b ph3 pv2 ba b--black-80 pointer" type="submit" value="Search">
+        </div>
+      </form>
+      <div class="mt3">
+        <table class="collapse ba br2 b--black-10 pv2 ph3">
+          <tr class="striped--light-gray">
+            <th class="f6 b tl ttu pv2 ph3">Title</th>
+            <th class="f6 b tl ttu pv2 ph3">Author</th>
+          </tr>
+          {% for row in result %}
+            <tr class="striped--light-gray">
+              {% for item in row %}
+                <td class="pv2 ph3">{{ item }}</td>
+              {% endfor %}
+            </tr>
           {% endfor %}
-        </tr>
-      {% endfor %}
-    </table>
+        </table>
+      </div>
+    </div>
   </body>
 </html>
