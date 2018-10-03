@@ -14,7 +14,7 @@ def db():
 def index():
 	if session.get('auth'):
 		search = request.args.get('search', '')
-		query = 'SELECT title, author FROM sequels WHERE title LIKE "%' + search + '%"'
+		query = "SELECT title, author FROM sequels WHERE title LIKE '%" + search + "%'"
 		try:
 			result = list(db().cursor().execute(query))
 		except Exception as e:
@@ -26,8 +26,10 @@ def index():
 def login():
 	username = request.form.get('username', '')
 	password = request.form.get('password', '')
-	query = 'SELECT * FROM users WHERE username="' + username + '" AND password="' + password + '"'
+	query = "SELECT * FROM users WHERE username='" + username + "' AND password='" + password + "'"
+	print(query)
 	result = list(db().cursor().execute(query))
+	print(result)
 	if result:
 		session['auth'] = True
 	return make_response(redirect('/'))
