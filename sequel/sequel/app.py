@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import request, session
-from flask import make_response, redirect, render_template
+from flask import redirect, render_template
 
 import sqlite3
 
@@ -32,7 +32,7 @@ def login():
 	print(result)
 	if result:
 		session['auth'] = True
-	return make_response(redirect('/'))
+	return redirect('/')
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 	app.run()
